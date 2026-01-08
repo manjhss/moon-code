@@ -8,5 +8,5 @@ export default defineSchema({
     importStatus: v.optional(
       v.union(v.literal("pending"), v.literal("completed"), v.literal("failed"))
     ),
-  }),
+  }).index("by_owner", ["ownerId"]),
 });
