@@ -51,7 +51,7 @@ const ContinueCard = ({ data }: { data: Doc<"projects"> }) => {
 
 const ProjectItem = ({ data }: { data: Doc<"projects"> }) => {
   return (
-    <Button variant="ghost">
+    <Button variant="ghost" className="p-0">
       <Link
         href={`/projects/${data._id}`}
         className="text-sm text-foreground/60 font-medium hover:text-foreground py-1 flex items-center justify-between w-full group"

@@ -47,15 +47,6 @@ export default function ProjectsView() {
 
       <div className="min-h-screen flex flex-col items-center justify-center p-6 md:p-16">
         <div className="w-full max-w-sm mx-auto flex flex-col gap-4 items-center">
-          <div className="flex justify-between gap-4 w-full items-center">
-            <div className="flex items-center gap-2 w-full group/logo">
-              <img src="/logo.svg" alt="Polaris" className="size-7 md:size-8" />
-              <h1 className={cn("text-2xl md:text-3xl font-semibold")}>
-                Moon Code
-              </h1>
-            </div>
-          </div>
-
           <div className="flex flex-col gap-4 w-full">
             <div className="grid grid-cols-2 gap-2">
               <Button
