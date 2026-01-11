@@ -12,7 +12,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { ReactNode } from "react";
-import AuthUserButton from "./auth/user-button";
 import UnauthenticatedView from "@/features/auth/components/unauthenticated-view";
 import AuthLoadingView from "@/features/auth/components/auth-loading-view";
 
@@ -47,7 +46,6 @@ export function Providers({ children }: { children: ReactNode }) {
           disableTransitionOnChange
         >
           <Authenticated>
-            <AuthUserButton />
             {children}
           </Authenticated>
 
