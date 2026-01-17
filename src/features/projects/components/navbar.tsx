@@ -23,12 +23,12 @@ import { cn } from "@/lib/utils";
 
 import { Id } from "../../../../convex/_generated/dataModel";
 import { useProject, useRenameProject } from "../hooks/use-projects";
-import Icon from "@/components/icon";
-import { CloudDownloadIcon, Loading03Icon } from "@hugeicons/core-free-icons";
+import IconButton from "@/components/icon-button";
+import { CloudDownloadIcon } from "@hugeicons/core-free-icons";
 
 export default function Navbar({ projectId }: { projectId: Id<"projects"> }) {
   const project = useProject(projectId);
-  const renameProject = useRenameProject(projectId);
+  const renameProject = useRenameProject();
 
   const [isRenaming, setIsRenaming] = useState(false);
   const [name, setName] = useState("");
@@ -98,9 +98,7 @@ export default function Navbar({ projectId }: { projectId: Id<"projects"> }) {
         </Breadcrumb>
         <Tooltip>
           <TooltipTrigger asChild>
-            <Button variant="ghost" size="icon" className="cursor-pointer">
-              <Icon icon={CloudDownloadIcon} />
-            </Button>
+            <IconButton icon={CloudDownloadIcon} />
           </TooltipTrigger>
           <TooltipContent>Saved</TooltipContent>
         </Tooltip>

@@ -16,7 +16,7 @@ import { useCreateProject } from "../hooks/use-projects";
 
 import ProjectsList from "./projects-list";
 import ProjectsCommandDialog from "./projects-command-dialog";
-import Icon from "@/components/icon";
+import IconButton from "@/components/icon-button";
 import { GithubIcon, SparklesIcon } from "@hugeicons/core-free-icons";
 
 export default function ProjectsView() {
@@ -65,7 +65,7 @@ export default function ProjectsView() {
                 className="h-full items-start justify-start p-4 bg-background border flex flex-col gap-6"
               >
                 <div className="flex items-center justify-between w-full">
-                  <Icon icon={SparklesIcon} />
+                  <IconButton icon={SparklesIcon} />
                   <Kbd className="bg-accent border">⌘J</Kbd>
                 </div>
                 <div>
@@ -78,7 +78,7 @@ export default function ProjectsView() {
                 className="h-full items-start justify-start p-4 bg-background border flex flex-col gap-6"
               >
                 <div className="flex items-center justify-between w-full">
-                  <Icon icon={GithubIcon} />
+                  <IconButton icon={GithubIcon} />
                   <Kbd className="bg-accent border">⌘I</Kbd>
                 </div>
                 <div>

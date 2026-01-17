@@ -7,11 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Doc } from "../../../../convex/_generated/dataModel";
 
 import { useProjectsPartial } from "../hooks/use-projects";
-import Icon from "@/components/icon";
-import {
-  ArrowRight02Icon,
-  CodeSimpleIcon,
-} from "@hugeicons/core-free-icons";
+import IconButton from "@/components/icon-button";
+import { ArrowRight02Icon, CodeSimpleIcon } from "@hugeicons/core-free-icons";
 
 const formatTimestamp = (timestamp: number) => {
   return formatDistanceToNow(new Date(timestamp), {
@@ -35,10 +32,10 @@ const ContinueCard = ({ data }: { data: Doc<"projects"> }) => {
         <Link href={`/projects/${data._id}`} className="group">
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center gap-2">
-              <Icon icon={CodeSimpleIcon} />
+              <IconButton icon={CodeSimpleIcon} />
               <span className="font-medium truncate">{data.name}</span>
             </div>
-            <Icon icon={ArrowRight02Icon} />
+            <IconButton icon={ArrowRight02Icon} />
           </div>
           <span className="text-xs text-muted-foreground">
             {formatTimestamp(data._creationTime)}
@@ -57,7 +54,7 @@ const ProjectItem = ({ data }: { data: Doc<"projects"> }) => {
         className="text-sm text-foreground/60 font-medium hover:text-foreground py-1 flex items-center justify-between w-full group"
       >
         <div className="flex items-center gap-2">
-          <Icon icon={CodeSimpleIcon} />
+          <IconButton icon={CodeSimpleIcon} />
           <span className="truncate">{data.name}</span>
         </div>
         <span className="text-xs text-muted-foreground group-hover:text-foreground/60 transition-colors">
