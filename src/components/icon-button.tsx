@@ -1,11 +1,22 @@
 "use client";
 
 import { HugeiconsIcon, IconSvgElement } from "@hugeicons/react";
-import { Button } from "./ui/button";
+import { type VariantProps } from "class-variance-authority";
+import { Button, buttonVariants } from "./ui/button";
 
-export default function IconButton({ icon, onClick }: { icon: IconSvgElement, onClick?: React.MouseEventHandler<HTMLButtonElement> }) {
+interface IconButtonProps
+  extends React.ComponentProps<"button">, VariantProps<typeof buttonVariants> {
+  icon: IconSvgElement;
+}
+
+export default function IconButton({ icon, ...props }: IconButtonProps) {
   return (
-    <Button variant="ghost" size="icon-sm" className="cursor-pointer" onClick={onClick}>
+    <Button
+      variant="ghost"
+      className="cursor-pointer"
+      size={"icon-sm"}
+      {...props}
+    >
       <HugeiconsIcon icon={icon} strokeWidth={2} />
     </Button>
   );

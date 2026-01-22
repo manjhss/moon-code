@@ -18,6 +18,7 @@ import TreeItemWrapper from "./tree-item-wrapper";
 import { Doc, Id } from "../../../../../convex/_generated/dataModel";
 import IconButton from "@/components/icon-button";
 import { ArrowDown01Icon, ArrowRight01Icon } from "@hugeicons/core-free-icons";
+import { useEditor } from "@/features/editor/hooks/use-editor";
 
 export default function Tree({
   item,
@@ -36,6 +37,8 @@ export default function Tree({
   const deleteFile = useDeleteFile();
   const createFile = useCreateFile();
   const createFolder = useCreateFolder();
+
+  const { openFile, closeTab, activeTabId } = useEditor(projectId);
 
   const folderContents = useFolderContents({
     projectId,
@@ -79,6 +82,7 @@ export default function Tree({
 
   if (item.type === "file") {
     const fileName = item.name;
+    const isActive = activeTabId === item._id;
 
     if (isRenaming) {
       return (
@@ -96,12 +100,12 @@ export default function Tree({
       <TreeItemWrapper
         item={item}
         level={level}
-        isActive={false}
-        onClick={() => {}}
-        onDoubleClick={() => {}}
+        isActive={isActive}
+        onClick={() => openFile(item._id, { pinned: false })}
+        onDoubleClick={() => openFile(item._id, { pinned: true })}
         onRename={() => setIsRenaming(true)}
         onDelete={() => {
-          // TODO: Close tab
+          closeTab(item._id);
           deleteFile({ id: item._id });
         }}
       >
@@ -196,7 +200,7 @@ export default function Tree({
         onClick={() => setIsOpen((value) => !value)}
         onRename={() => setIsRenaming(true)}
         onDelete={() => {
-          // TODO: Close tab
+           closeTab(item._id);
           deleteFile({ id: item._id });
         }}
         onCreateFile={() => startCreating("file")}
